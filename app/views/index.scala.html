@@ -1,0 +1,188 @@
+@(title: String, text: Text, year: String)
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="@routes.Assets.versioned("images/dreamland.jpg")">
+
+    <title>@title Blog</title>
+
+    <!-- Bootstrap core CSS -->
+<link rel='stylesheet' href='@routes.WebJarAssets.at(WebJarAssets.locate("bootstrap.min.css"))'>
+<script type='text/javascript' src='@routes.WebJarAssets.at(WebJarAssets.locate("jquery.min.js"))'></script>
+<script type='text/javascript' src='@routes.WebJarAssets.at(WebJarAssets.locate("bootstrap.min.js"))'></script>
+    <!-- Custom styles for this template -->
+    <link href="carousel.css" rel="stylesheet">
+  </head>
+<!-- NAVBAR
+================================================== -->
+  <body>
+    <div class="navbar-wrapper">
+      <div class="container">
+
+        <div class="navbar navbar-inverse navbar-static-top" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#">@title Blog</a>
+            </div>
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li class="divider"></li>
+                    <li class="dropdown-header">My old stuff</li>
+                    <li><a href="@text.oldSiteUrl">old web site</a></li>
+                    <li><a href="@text.masterThesisURL">Master's thesis</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+    <!-- Carousel
+    ================================================== -->
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="item active">
+           <img src="@routes.Assets.versioned("images/dreamland_big.png")" class="img-responsive" alt="Responsive image" type="image">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>@text.firstCaruselHeader</h1>
+              <p>@text.firstCaruselText</p>
+              <p><a class="btn btn-lg btn-primary" href="#" role="button">Play</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+         <img src="@routes.Assets.versioned("images/dreamland_city_1500x500_up2.jpg")" class="img-responsive" alt="Responsive image" type="image">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>@text.secondCaruselHeader</h1>
+              <p>@text.secondCaruselText</p>
+              <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+         <img src="@routes.Assets.versioned("images/dreamland_city_1500x500.jpg")" class="img-responsive" alt="Responsive image" type="image">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>@text.thirdCaruselHeader</h1>
+              <p>@text.thirdCaruselText</p>
+              <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+      <a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+    </div>
+    <!-- /.carousel -->
+
+
+
+    <!-- Marketing messaging and featurettes
+    ================================================== -->
+    <!-- Wrap the rest of the page in another container to center all the content. -->
+
+    <div class="container marketing">
+
+      <!-- Three columns of text below the carousel -->
+      <div class="row">
+        <div class="col-lg-4">
+          <img class="img-circle" data-src="holder.js/140x140" alt="">
+          <h2>@text.firstHeader</h2>
+          <p>@text.firstText</p>
+          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+          <img class="img-circle" data-src="holder.js/140x140" alt="">
+          <h2>@text.secondHeader</h2>
+          <p>@text.secondText</p>
+          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+          <img class="img-circle" data-src="holder.js/140x140" alt="">
+          <h2>@text.thirdHeader</h2>
+          <p>@text.thirdText</p>
+          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+        </div><!-- /.col-lg-4 -->
+      </div><!-- /.row -->
+
+
+      <!-- START THE FEATURETTES -->
+
+      <hr class="featurette-divider">
+
+            <hr class="featurette-divider">
+      <div class="featurette" id="about">
+       <a href="@text.twitterLink"><img class="featurette-image pull-left" src="@routes.Assets.versioned("images/Twitter_bird_logo_2012.svg")" width="100" height="75">
+        <h2 class="featurette-heading">Check out my twitter feeds <span class="muted"></a>It'll blow your mind.</span></h2>
+        <p class="lead">Twitter is very good information channel for all software professionals</p>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <div class="featurette" id="contact">
+        <a href="@text.githubLink"> <img class="featurette-image pull-left" src="@routes.Assets.versioned("images/github-circled-alt2.svg")" width="100" height="75">
+        <h2 class="featurette-heading">Github <span class="muted"></a>great place for social coding</span></h2>
+        <p class="lead">Github is greate place for social coding. I have some test protos on the github account</p>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <div class="featurette">
+         <a href="@text.linkedinLink"><img class="featurette-image pull-left" src="@routes.Assets.versioned("images/Linkedin_icon.svg")" width="100" height="75">
+          <h2 class="featurette-heading">Want to contact me? <span class="muted"></a>contact me through linkedin.</span></h2>
+        <p class="lead">Check me linkedin profile and find out more about me.</p>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <!-- /END THE FEATURETTES -->
+
+
+      <!-- FOOTER -->
+      <footer>
+        <p class="pull-right"><a href="#">Back to top</a></p>
+        <p>&copy;@year @title. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+      </footer>
+
+    </div><!-- /.container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+
+  </body>
+</html>
