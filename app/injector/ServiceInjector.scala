@@ -6,7 +6,6 @@ import com.google.inject.Injector
 import module.ProductionModule
 import module.TestModule
 import play.Logger
-import play.Logger
 import play.Play
 import services.APIService
 import services.RestService

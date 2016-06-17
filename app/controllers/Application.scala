@@ -14,4 +14,9 @@ object Application extends Controller with Config with TextService {
   def test = Action {
     Ok(views.html.ajax(conf("blog.user.name")))
   }
+
+
+  def test2 = Action {
+    Ok(views.html.index2("Hello React2!"))
+  }
 }
