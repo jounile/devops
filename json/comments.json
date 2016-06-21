@@ -1,0 +1,12 @@
+[
+  {
+    "id": 1388534400000,
+    "author": "Jukka Edvardsson",
+    "text": "nice, but..."
+  },
+  {
+    "id": 1420070400000,
+    "author": "Rich Hickey",
+    "text": "React is nice, but you should use Regent (https://reagent-project.github.io/)"
+  }
+]

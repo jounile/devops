@@ -20,4 +20,9 @@ object Rest extends Controller with ServiceInjector {
     apiService.getAPIDescription() map (future =>
       Ok(future))
   }
+
+  def comments = Action.async { implicit request =>
+    apiService.getComments() map (future =>
+      Ok(future))
+  }
 }
