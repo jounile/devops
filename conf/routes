@@ -5,7 +5,7 @@
 # Home page
 #GET   /                controllers.Application.index
 GET        /test                 controllers.Application.test
-GET        /test2                 controllers.Application.test2
+GET        /react                controllers.Application.test2
 
 GET        /rest                 controllers.Rest.test
 GET        /api                  controllers.Rest.api

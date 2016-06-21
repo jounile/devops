@@ -3,3 +3,18 @@ ReactDOM.render(
     document.getElementById('example')
 );
 
+var CommentBox = React.createClass({displayName: 'CommentBox',
+    render: function() {
+        return (
+            React.createElement('div', {className: "commentBox"},
+                "Welcome to my project page."
+            )
+        );
+    }
+});
+
+ReactDOM.render(
+    React.createElement(CommentBox, null),
+    document.getElementById('content')
+);
+

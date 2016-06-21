@@ -1,9 +1,8 @@
 package controllers
 
-import play.api._
 import play.api.mvc._
-import utils.Config
 import services.common.TextService
+import utils.Config
 
 object Application extends Controller with Config with TextService {
 
