@@ -16,6 +16,6 @@ object Application extends Controller with Config with TextService {
 
 
   def test2 = Action {
-    Ok(views.html.index2("Hello React2!"))
+    Ok(views.html.index2("Project page!"))
   }
 }

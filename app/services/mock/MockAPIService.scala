@@ -1,11 +1,15 @@
 package services.mock
 
-import play.api.libs.json.Json
+import java.io.{FileWriter, BufferedWriter, File}
+
+import play.api.libs.json.{JsObject, Json}
 
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.Future
 
 import services.APIService
+
+import scala.io.Source
 
 class MockAPIService extends APIService {
 
@@ -25,5 +29,9 @@ class MockAPIService extends APIService {
         "text" -> "nice, but where is clojureScript"))
 
     Future(json.toString)
+  }
+
+  def addComments(comment: JsObject): scala.concurrent.Future[String] = {
+    Future("")
   }
 }
