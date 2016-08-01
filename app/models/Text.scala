@@ -1,21 +1,27 @@
 package models
 
 case class Text(
+
+  title: String,
+
   firstHeader: String,
   firstText: String,
   secondHeader: String,
   secondText: String,
   thirdHeader: String,
   thirdText: String,
+  fourthHeader: String,
+  fourthText: String,
+
   twitterLink: String,
-  githubLink: String,
+  websiteLink: String,
   linkedinLink: String,
+
   firstCaruselHeader: String,
   firstCaruselText: String,
   secondCaruselHeader: String,
   secondCaruselText: String,
   thirdCaruselHeader: String,
-  thirdCaruselText: String,
-  oldSiteUrl: String,
-  masterThesisURL: String
+  thirdCaruselText: String
+
 )

@@ -6,15 +6,20 @@ import utils.Config
 trait TextService extends Config {
 
   def getText(): Text = {
+
+    val title = conf("title")
+
     val firstHeader = conf("first.header")
     val firstText = conf("first.text")
     val secondHeader = conf("second.header")
     val secondText = conf("second.text")
     val thirdHeader = conf("third.header")
     val thirdText = conf("third.text")
+    val fourthHeader = conf("fourth.header")
+    val fourthText = conf("fourth.text")
 
     val twitterLink = conf("twitter.link")
-    val githubLink = conf("github.link")
+    val websiteLink = conf("website.link")
     val linkedinLink = conf("linkedin.link")
 
     val firstCaruselHeader = conf("first.carusel.header")
@@ -24,12 +29,10 @@ trait TextService extends Config {
     val thirdCaruselHeader = conf("third.carusel.header")
     val thirdCaruselText = conf("third.carusel.text")
 
-    val oldSite= conf("old.site.url")
-    val thesis = conf("master.thesis.url")
 
-    val text = new Text(firstHeader, firstText, secondHeader, secondText, thirdHeader, thirdText,
-      twitterLink, githubLink, linkedinLink, firstCaruselHeader, firstCaruselText, secondCaruselHeader,
-      secondCaruselText, thirdCaruselHeader, thirdCaruselText, oldSite, thesis)
+    val text = new Text(title, firstHeader, firstText, secondHeader, secondText, thirdHeader, thirdText, fourthHeader, fourthText,
+      twitterLink, websiteLink, linkedinLink, firstCaruselHeader, firstCaruselText, secondCaruselHeader,
+      secondCaruselText, thirdCaruselHeader, thirdCaruselText)
     text
   }
 }

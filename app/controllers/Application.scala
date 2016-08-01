@@ -7,7 +7,7 @@ import utils.Config
 object Application extends Controller with Config with TextService {
 
   def index = Action {
-    Ok(views.html.index(conf("blog.user.name"), getText(), conf("year")))
+    Ok(views.html.index(getText(), conf("year"), conf("siili")))
   }
 
   def test = Action {

@@ -1,4 +1,4 @@
-@(title: String, text: Text, year: String)
+@(text: Text, year: String, siili: String)
 
 <!DOCTYPE html>
 <html lang="en">
@@ -10,7 +10,7 @@
         <meta name="author" content="">
         <link rel="shortcut icon" href="@routes.Assets.versioned("images/dreamland.jpg")">
 
-        <title>@title Blog</title>
+        <title>@text.title</title>
 
             <!-- Bootstrap core CSS -->
         <link rel='stylesheet' href='@routes.WebJarAssets.at(WebJarAssets.locate("bootstrap.min.css"))'>
@@ -35,7 +35,7 @@
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
                             </button>
-                            <a class="navbar-brand" href="#">@title Blog</a>
+                            <a class="navbar-brand" href="#">@text.title</a>
                         </div>
                         <div class="navbar-collapse collapse">
                             <ul class="nav navbar-nav">
@@ -48,10 +48,8 @@
                                         <li><a href="#">Action</a></li>
                                         <li><a href="#about">About</a></li>
                                         <li><a href="#contact">Contact</a></li>
-                                        <li class="divider"></li>
-                                        <li class="dropdown-header">My old stuff</li>
-                                        <li><a href="@text.oldSiteUrl">old web site</a></li>
-                                        <li><a href="@text.masterThesisURL">Master's thesis</a></li>
+                                        <!--<li class="divider"></li>-->
+                                        <!--<li class="dropdown-header">Other</li>-->
                                     </ul>
                                 </li>
                             </ul>
@@ -116,26 +114,35 @@
 
         <div class="container marketing">
 
-                <!-- Three columns of text below the carousel -->
+                <!-- Two columns of text below the carousel -->
             <div class="row">
-                <div class="col-lg-4">
+                <div class="col-lg-6">
                     <img class="img-circle" data-src="holder.js/140x140" alt="">
                     <h2>@text.firstHeader</h2>
                     <p>@text.firstText</p>
                     <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-                </div> <!-- /.col-lg-4 -->
-                <div class="col-lg-4">
+                </div> <!-- /.col-lg-6 -->
+                <div class="col-lg-6">
                     <img class="img-circle" data-src="holder.js/140x140" alt="">
                     <h2>@text.secondHeader</h2>
                     <p>@text.secondText</p>
                     <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-                </div> <!-- /.col-lg-4 -->
-                <div class="col-lg-4">
+                </div> <!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+
+            <div class="row">
+                <div class="col-lg-6">
                     <img class="img-circle" data-src="holder.js/140x140" alt="">
                     <h2>@text.thirdHeader</h2>
                     <p>@text.thirdText</p>
                     <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-                </div> <!-- /.col-lg-4 -->
+                </div> <!-- /.col-lg-6 -->
+                <div class="col-lg-6">
+                    <img class="img-circle" data-src="holder.js/140x140" alt="">
+                    <h2>@text.fourthHeader</h2>
+                    <p>@text.fourthText</p>
+                    <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+                </div> <!-- /.col-lg-6 -->
             </div> <!-- /.row -->
 
 
@@ -146,27 +153,25 @@
             <hr class="featurette-divider">
             <div class="featurette" id="about">
                 <a href="@text.twitterLink"><img class="featurette-image pull-left" src="@routes.Assets.versioned("images/Twitter_bird_logo_2012.svg")" width="100" height="75">
-                    <h2 class="featurette-heading">Check out my twitter feeds <span class="muted"></a>
-                It'll blow your mind.</span> </h2>
-                <p class="lead">Twitter is very good information channel for all software professionals</p>
+                    <h2 class="featurette-heading">What are we up to? <span class="muted">Check our twitter feed. </span> </h2></a>
+                <p class="lead">Twitter is very good information channel for Siili related updates</p>
             </div>
 
             <hr class="featurette-divider">
 
             <div class="featurette" id="contact">
-                <a href="@text.githubLink"> <img class="featurette-image pull-left" src="@routes.Assets.versioned("images/github-circled-alt2.svg")" width="100" height="75">
-                    <h2 class="featurette-heading">Github <span class="muted"></a>
-                great place for social coding</span> </h2>
-                <p class="lead">Github is greate place for social coding. I have some test protos on the github account</p>
+                <a href="@text.websiteLink"> <img class="featurette-image pull-left" src="@routes.Assets.versioned("images/siili_logo.png")" width="100" height="100">
+                    <h2 class="featurette-heading">See our website at <span class="muted">www.siili.com</span> </h2>
+                </a>
+                <p class="lead">We combine design, software development, and data into one business-oriented entity together with the customer, for the benefit of the customer.</p>
             </div>
 
             <hr class="featurette-divider">
 
             <div class="featurette">
                 <a href="@text.linkedinLink"><img class="featurette-image pull-left" src="@routes.Assets.versioned("images/Linkedin_icon.svg")" width="100" height="75">
-                    <h2 class="featurette-heading">Want to contact me? <span class="muted"></a>
-                contact me through linkedin.</span> </h2>
-                <p class="lead">Check me linkedin profile and find out more about me.</p>
+                    <h2 class="featurette-heading">Want to contact us? <span class="muted">Find us in LinkedIn.</span> </h2></a>
+                <p class="lead">Check our company linkedin profile and find out more.</p>
             </div>
 
             <hr class="featurette-divider">
@@ -177,7 +182,7 @@
                 <!-- FOOTER -->
             <footer>
                 <p class="pull-right"><a href="#">Back to top</a></p>
-                <p>&copy; @year @title. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+                <p>&copy; @year @siili. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
             </footer>
 
         </div> <!-- /.container -->
