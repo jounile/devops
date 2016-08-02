@@ -4,14 +4,14 @@ case class Text(
 
   title: String,
 
-  firstHeader: String,
-  firstText: String,
-  secondHeader: String,
-  secondText: String,
-  thirdHeader: String,
-  thirdText: String,
-  fourthHeader: String,
-  fourthText: String,
+  firstTitle: String,
+  firstBody: String,
+  secondTitle: String,
+  secondBody: String,
+  thirdTitle: String,
+  thirdBody: String,
+  fourthTitle: String,
+  fourthBody: String,
 
   twitterLink: String,
   websiteLink: String,

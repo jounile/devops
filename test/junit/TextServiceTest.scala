@@ -18,8 +18,8 @@ class TextServiceTest extends Specification with Config with TextService {
       running(FakeApplication(additionalConfiguration = inMemoryDatabase())) {
       val returnValue = getText()
       Assert.assertNotNull(returnValue)
-      Assert.assertEquals(conf("first.header"), returnValue.firstHeader)
-      Assert.assertEquals(conf("first.text"), returnValue.firstText)
+      Assert.assertEquals(conf("first.header"), returnValue.firstTitle)
+      Assert.assertEquals(conf("first.text"), returnValue.firstBody)
     }
   }
 
