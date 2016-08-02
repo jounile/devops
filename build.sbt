@@ -28,3 +28,4 @@ libraryDependencies += "com.novocode" % "junit-interface" % "0.10" % "test"
 //routesGenerator := InjectedRoutesGenerator
 libraryDependencies += "org.webjars" %% "webjars-play" % "2.4.0"
 libraryDependencies += "org.webjars" % "bootstrap" % "3.3.4"
+libraryDependencies += "org.webjars" % "angularjs" % "1.4.9" exclude("org.webjars", "jquery")

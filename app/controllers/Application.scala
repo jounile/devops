@@ -10,4 +10,8 @@ object Application extends Controller with Config with TextService {
     Ok(views.html.index(getText(), conf("year"), conf("siili")))
   }
 
+  def form = Action {
+    Ok(views.html.form("my message"))
+  }
+
 }
