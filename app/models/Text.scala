@@ -17,15 +17,10 @@ case class Text(
   websiteLink: String,
   linkedinLink: String,
 
-  firstCaruselHeader: String,
   firstCaruselText: String,
-  secondCaruselHeader: String,
   secondCaruselText: String,
-  thirdCaruselHeader: String,
   thirdCaruselText: String,
-  fourthCaruselHeader: String,
   fourthCaruselText: String,
-  fifthCaruselHeader: String,
   fifthCaruselText: String
 
 )

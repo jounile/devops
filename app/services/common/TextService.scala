@@ -22,20 +22,15 @@ trait TextService extends Config {
     val websiteLink = conf("website.link")
     val linkedinLink = conf("linkedin.link")
 
-    val firstCaruselHeader = conf("first.carusel.header")
     val firstCaruselText = conf("first.carusel.text")
-    val secondCaruselHeader = conf("second.carusel.header")
     val secondCaruselText = conf("second.carusel.text")
-    val thirdCaruselHeader = conf("third.carusel.header")
     val thirdCaruselText = conf("third.carusel.text")
-    val fourthCaruselHeader = conf("fourth.carusel.header")
     val fourthCaruselText = conf("fourth.carusel.text")
-    val fifthCaruselHeader = conf("fifth.carusel.header")
     val fifthCaruselText = conf("fifth.carusel.text")
 
     val text = new Text(title, firstHeader, firstText, secondHeader, secondText, thirdHeader, thirdText, fourthHeader, fourthText,
-      twitterLink, websiteLink, linkedinLink, firstCaruselHeader, firstCaruselText, secondCaruselHeader,
-      secondCaruselText, thirdCaruselHeader, thirdCaruselText, fourthCaruselHeader, fourthCaruselText, fifthCaruselHeader, fifthCaruselText)
+      twitterLink, websiteLink, linkedinLink, firstCaruselText,
+      secondCaruselText, thirdCaruselText, fourthCaruselText, fifthCaruselText)
     text
   }
 }
