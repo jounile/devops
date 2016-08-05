@@ -7,14 +7,19 @@ lazy val root = (project in file(".")).enablePlugins(PlayScala)
 scalaVersion := "2.11.8"
 val reactiveMongoVer = "0.11.14"
 
+val appDependencies = Seq(
+  "postgresql" % "postgresql" % "8.4-702.jdbc4"
+)
+
 libraryDependencies ++= Seq(
   jdbc,
+  "com.typesafe.play" %% "anorm" % "2.5.0",
+  evolutions,
   cache,
   ws,
   "com.tzavellas" % "sse-guice" % "0.7.1",
   "com.google.inject" % "guice" % "3.0",
   "se.radley" %% "play-plugins-salat" % "1.5.0",
-  "org.reactivemongo" %% "play2-reactivemongo" % reactiveMongoVer,
   specs2 % Test
 
 )
