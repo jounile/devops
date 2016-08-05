@@ -1,4 +1,4 @@
-name := "newBlog"
+name := """devops"""
 
 version := "1.0-SNAPSHOT"
 
