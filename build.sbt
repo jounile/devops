@@ -5,15 +5,11 @@ version := "1.0-SNAPSHOT"
 lazy val root = (project in file(".")).enablePlugins(PlayScala)
 
 scalaVersion := "2.11.8"
-val reactiveMongoVer = "0.11.14"
-
-val appDependencies = Seq(
-  "postgresql" % "postgresql" % "8.4-702.jdbc4"
-)
 
 libraryDependencies ++= Seq(
   jdbc,
   "com.typesafe.play" %% "anorm" % "2.5.0",
+  "org.postgresql" % "postgresql" % "9.4-1206-jdbc42",
   evolutions,
   cache,
   ws,
