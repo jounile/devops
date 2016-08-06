@@ -6,7 +6,7 @@ import services.common.TextService
 import utils.Config
 import play.api.data._
 import play.api.data.Forms._
-import models.Task
+import models.{Task, Technology}
 import anorm._
 import anorm.SqlParser._
 
@@ -43,7 +43,9 @@ object Application extends Controller with Config with TextService {
     Redirect(routes.Application.tasks)
   }
 
-
+  def technologies = Action {
+    Ok(views.html.technologies(Technology.all()))
+  }
 
 
 

@@ -2,7 +2,6 @@ package models
 
 import anorm.SqlParser._
 import anorm._
-import anorm._
 import play.api.Play.current
 import play.api.db.DB
 
