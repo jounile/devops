@@ -7,8 +7,8 @@ import utils.Config
 import play.api.data._
 import play.api.data.Forms._
 import models.{Task, Technology}
-import anorm._
-import anorm.SqlParser._
+import play.api.libs.json._
+import play.api.libs.functional.syntax._
 
 object Application extends Controller with Config with TextService {
 
@@ -19,6 +19,9 @@ object Application extends Controller with Config with TextService {
   def form = Action {
     Ok(views.html.form("my message"))
   }
+
+
+  // Tasks
 
   def tasks = Action {
     Ok(views.html.tasks(Task.all(), taskForm))
@@ -43,10 +46,19 @@ object Application extends Controller with Config with TextService {
     Redirect(routes.Application.tasks)
   }
 
-  def technologies = Action {
-    Ok(views.html.technologies(Technology.all()))
-  }
 
+
+  // Technologies
+
+  implicit val technologyWrites: Writes[Technology] = (
+    (JsPath \ "title").write[String] and
+    (JsPath \ "body").write[String]
+  )(unlift(Technology.unapply))
+
+  def getTechnologies = Action {
+    Ok(Json.toJson(Technology.all()))
+//    Ok(views.html.technologies(Technology.all()))
+  }
 
 
 }

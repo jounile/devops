@@ -1,7 +1,7 @@
 @(text: Text, year: String, siili: String)
 
 <!DOCTYPE html>
-<html lang="en">
+<html ng-app="myApp">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,6 +19,7 @@
         <script type='text/javascript' src='@routes.WebJarAssets.at(WebJarAssets.locate("angular.min.js"))'></script>
         <script type='text/javascript' src='@routes.WebJarAssets.at(WebJarAssets.locate("bootstrap.min.js"))'></script>
 
+        <script type='text/javascript' src='@routes.Assets.versioned("javascripts/app.js")'></script>
 
             <!-- Custom styles for this template -->
 
@@ -131,38 +132,19 @@
             <!-- Wrap the rest of the page in another container to center all the content. -->
 
         <div class="container marketing">
-
+            <div ng-controller="TechnologiesController">
                 <!-- Two columns of text below the carousel -->
-            <div class="row">
-                <div class="col-lg-6">
-                    <img class="img-circle" data-src="holder.js/140x140" alt="">
-                    <h2>@text.firstTitle</h2>
-                    <p>@text.firstBody</p>
-                    <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-                </div> <!-- /.col-lg-6 -->
-                <div class="col-lg-6">
-                    <img class="img-circle" data-src="holder.js/140x140" alt="">
-                    <h2>@text.secondTitle</h2>
-                    <p>@text.secondBody</p>
-                    <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-                </div> <!-- /.col-lg-6 -->
-            </div><!-- /.row -->
+                <div class="row" ng-repeat="technology in technologies">
+                    <div class="col-lg-6">
+                        <img class="img-circle" data-src="holder.js/140x140" alt="">
+                        <h2>{{technology.title}}</h2>
+                        <p>{{technology.body}}</p>
+                        <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+                    </div>
 
-            <div class="row">
-                <div class="col-lg-6">
-                    <img class="img-circle" data-src="holder.js/140x140" alt="">
-                    <h2>@text.thirdTitle</h2>
-                    <p>@text.thirdBody</p>
-                    <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-                </div> <!-- /.col-lg-6 -->
-                <div class="col-lg-6">
-                    <img class="img-circle" data-src="holder.js/140x140" alt="">
-                    <h2>@text.fourthTitle</h2>
-                    <p>@text.fourthBody</p>
-                    <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-                </div> <!-- /.col-lg-6 -->
-            </div> <!-- /.row -->
+                </div>
 
+            </div>
 
             <!-- START THE FEATURETTES -->
 

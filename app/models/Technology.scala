@@ -4,6 +4,7 @@ import anorm.SqlParser._
 import anorm._
 import play.api.Play.current
 import play.api.db.DB
+import play.api.libs.json.{JsArray, Json}
 
 case class Technology(title: String, body: String)
 
