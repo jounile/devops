@@ -1,5 +1,3 @@
-# Technologies schema
-
 # --- !Ups
 
 CREATE SEQUENCE tech_id_seq;
