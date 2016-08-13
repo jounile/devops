@@ -73,4 +73,8 @@ object Application extends Controller with Config with TextService {
     Ok(Json.toJson(Page.all()))
   }
 
+  def getPage(id: String) = Action {
+    Ok(views.html.page(getText()))
+  }
+
 }
