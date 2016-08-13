@@ -8,4 +8,10 @@
         });
     });
 
+    app.controller('PagesController', function($scope, $http) {
+        $http.get('/pages').success(function(data){
+            $scope.pages = data;
+        });
+    });
+
 }());
