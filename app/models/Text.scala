@@ -21,6 +21,9 @@ case class Text(
   secondCaruselText: String,
   thirdCaruselText: String,
   fourthCaruselText: String,
-  fifthCaruselText: String
+  fifthCaruselText: String,
+
+  year: String,
+  siili: String
 
 )

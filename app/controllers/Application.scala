@@ -13,18 +13,18 @@ import play.api.libs.functional.syntax._
 object Application extends Controller with Config with TextService {
 
   def index = Action {
-    Ok(views.html.index(getText(), conf("year"), conf("siili")))
+    Ok(views.html.index(getText()))
   }
 
   def form = Action {
-    Ok(views.html.form("my message"))
+    Ok(views.html.form(getText(), "my message"))
   }
 
 
   // Tasks
 
   def tasks = Action {
-    Ok(views.html.tasks(Task.all(), taskForm))
+    Ok(views.html.tasks(getText(), Task.all(), taskForm))
   }
 
   val taskForm = Form(
@@ -33,7 +33,7 @@ object Application extends Controller with Config with TextService {
 
   def newTask = Action { implicit request =>
     taskForm.bindFromRequest.fold(
-      errors => BadRequest(views.html.tasks(Task.all(), errors)),
+      errors => BadRequest(views.html.tasks(getText(), Task.all(), errors)),
       label => {
         Task.create(label)
         Redirect(routes.Application.tasks)

@@ -28,9 +28,12 @@ trait TextService extends Config {
     val fourthCaruselText = conf("fourth.carusel.text")
     val fifthCaruselText = conf("fifth.carusel.text")
 
+    val year = conf("year")
+    val siili = conf("siili")
+
     val text = new Text(title, firstTitle, firstBody, secondTitle, secondBody, thirdTitle, thirdBody, fourthTitle, fourthBody,
       twitterLink, websiteLink, linkedinLink, firstCaruselText,
-      secondCaruselText, thirdCaruselText, fourthCaruselText, fifthCaruselText)
+      secondCaruselText, thirdCaruselText, fourthCaruselText, fifthCaruselText, year, siili)
     text
   }
 }
