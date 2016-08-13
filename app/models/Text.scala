@@ -24,6 +24,12 @@ case class Text(
   fifthCaruselText: String,
 
   year: String,
-  siili: String
+  siili: String,
+
+  contactName: String,
+  contactEmail: String,
+  contactLinkedIn: String,
+  contactTitle: String,
+  contactCompany: String
 
 )

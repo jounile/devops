@@ -1,0 +1,34 @@
+@(text: Text, contacts: List[Contact], contactForm: Form[String])
+
+@import helper._
+@import play.api.Play.current
+@import play.api.i18n.Messages.Implicits._
+
+@main(text) {
+
+    <h1>Contact</h1>
+
+    <div style="float:left;">
+        @form(routes.Application.newContact) {
+
+            @inputText(contactForm("name"))
+            @inputText(contactForm("email"))
+            @inputText(contactForm("message"))
+
+            <input type="submit" value="Create">
+
+        }
+    </div>
+
+    <div style="float:right;">
+
+        <p>@text.contactName</p>
+        <p>@text.contactTitle</p>
+        <p>@text.contactCompany</p>
+        <p><a href="mailto:@text.contactEmail">@text.contactEmail</a></p>
+        <p><a href="@text.contactLinkedIn" target="_blank">@text.contactLinkedIn</p>
+
+    </div>
+
+    <div style="clear:both;"></div>
+}

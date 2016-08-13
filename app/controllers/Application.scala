@@ -6,7 +6,7 @@ import services.common.TextService
 import utils.Config
 import play.api.data._
 import play.api.data.Forms._
-import models.{Task, Technology, Page}
+import models._
 import play.api.libs.json._
 import play.api.libs.functional.syntax._
 
@@ -19,6 +19,31 @@ object Application extends Controller with Config with TextService {
   def form = Action {
     Ok(views.html.form(getText(), "my message"))
   }
+
+
+
+
+  // Contact
+
+  def contact = Action {
+    Ok(views.html.contacts(getText(), Contact.all(), contactForm))
+  }
+
+  val contactForm = Form(
+    "name" -> nonEmptyText
+  )
+
+  def newContact = Action { implicit request =>
+    taskForm.bindFromRequest.fold(
+      errors => BadRequest(views.html.contacts(getText(), Contact.all(), errors)),
+      name => {
+        Contact.create(name, "", "")
+        Redirect(routes.Application.contact)
+      }
+    )
+  }
+
+
 
 
   // Tasks

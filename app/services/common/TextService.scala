@@ -31,9 +31,18 @@ trait TextService extends Config {
     val year = conf("year")
     val siili = conf("siili")
 
+    val contactName = conf("contact.name")
+    val contactEmail = conf("contact.email")
+    val contactLinkedIn = conf("contact.linkedin")
+    val contactTitle = conf("contact.title")
+    val contactCompany = conf("contact.company")
+
     val text = new Text(title, firstTitle, firstBody, secondTitle, secondBody, thirdTitle, thirdBody, fourthTitle, fourthBody,
-      twitterLink, websiteLink, linkedinLink, firstCaruselText,
-      secondCaruselText, thirdCaruselText, fourthCaruselText, fifthCaruselText, year, siili)
+      twitterLink, websiteLink, linkedinLink,
+      firstCaruselText, secondCaruselText, thirdCaruselText, fourthCaruselText, fifthCaruselText,
+      year, siili,
+      contactName, contactEmail, contactLinkedIn, contactTitle, contactCompany)
     text
   }
+
 }

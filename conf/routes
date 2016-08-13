@@ -6,7 +6,12 @@ GET        /webjars/*file        controllers.WebJarAssets.at(file)
 
 # Home page
 GET        /                     controllers.Application.index
+
 GET        /form                  controllers.Application.form
+
+# Contacts
+GET        /contact                 controllers.Application.contact
+POST       /contact                  controllers.Application.newContact
 
 # Tasks
 GET     /tasks                  controllers.Application.tasks
