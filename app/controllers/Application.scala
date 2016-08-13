@@ -58,23 +58,22 @@ object Application extends Controller with Config with TextService {
 
   def getTechnologies = Action {
     Ok(Json.toJson(Technology.all()))
-//    Ok(views.html.technologies(Technology.all()))
   }
 
   // Pages
 
   implicit val pageWrites: Writes[Page] = (
     (JsPath \ "title").write[String] and
-      (JsPath \ "link").write[String] and
-      (JsPath \ "body").write[String]
+      (JsPath \ "path").write[String] and
+        (JsPath \ "body").write[String]
     )(unlift(Page.unapply))
 
   def getPages = Action {
-    Ok(Json.toJson(Page.all()))
+    Ok(Json.toJson(Page.getPages()))
   }
 
-  def getPage(id: String) = Action {
-    Ok(views.html.page(getText()))
+  def getPage(path: String) = Action {
+    Ok(views.html.page(getText(), Page.getPage(path)))
   }
 
 }

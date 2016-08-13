@@ -6,7 +6,7 @@ import play.api.Play.current
 import play.api.db.DB
 import play.api.libs.json.{JsArray, Json}
 
-case class Page(title: String, link: String, body: String)
+case class Page(title: String, path: String, body: String)
 
 object Page {
 
@@ -16,14 +16,20 @@ object Page {
 
   val page = {
     get[String]("title") ~
-      get[String]("link") ~
+      get[String]("path") ~
       get[String]("body") map {
-      case title ~link ~ body => Page(title, link, body)
+      case title ~path ~ body => Page(title, path, body)
     }
   }
 
-  def all(): List[Page] = DB.withConnection { implicit c =>
+  def getPages(): List[Page] = DB.withConnection { implicit c =>
     SQL("select * from pages").as(page *)
+  }
+
+  def getPage(path: String): List[Page] = DB.withConnection { implicit c =>
+    SQL("select * from pages where path = {path}")
+      .on("path" -> path)
+      .as(page *)
   }
 
 }
