@@ -52,7 +52,8 @@ object Application extends Controller with Config with TextService {
 
   implicit val technologyWrites: Writes[Technology] = (
     (JsPath \ "title").write[String] and
-    (JsPath \ "body").write[String]
+      (JsPath \ "link").write[String] and
+        (JsPath \ "body").write[String]
   )(unlift(Technology.unapply))
 
   def getTechnologies = Action {

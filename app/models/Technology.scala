@@ -6,7 +6,7 @@ import play.api.Play.current
 import play.api.db.DB
 import play.api.libs.json.{JsArray, Json}
 
-case class Technology(title: String, body: String)
+case class Technology(title: String, link: String, body: String)
 
 object Technology {
 
@@ -16,8 +16,9 @@ object Technology {
 
   val technology = {
     get[String]("title") ~
-      get[String]("body") map {
-      case title ~ body => Technology(title, body)
+      get[String]("link") ~
+        get[String]("body") map {
+      case title ~link ~ body => Technology(title, link, body)
     }
   }
 
