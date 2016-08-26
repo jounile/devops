@@ -1,4 +1,6 @@
-This is your new Play application
+TravisCI(master)[![Build Status](https://travis-ci.org/jounile/devops.svg?branch=master)](https://travis-ci.org/jounile/devops)
+
+DevOps adventure
 =================================
 
-This file will be packaged with your application, when using `activator dist`.
+
