@@ -2,22 +2,27 @@ package controllers
 
 import play.api.mvc._
 import play.api.libs.json.{JsArray, Json}
-import services.common.TextService
 import utils.Config
 import play.api.data._
 import play.api.data.Forms._
 import models._
+import play.api.Play.current
+import play.api.i18n.Messages
+import play.api.i18n.Messages.Implicits._
 import play.api.libs.json._
 import play.api.libs.functional.syntax._
+import play.twirl.api.Html
 
-object Application extends Controller with Config with TextService {
+object Application extends Controller with Config {
+
+
 
   def index = Action {
-    Ok(views.html.index(getText()))
+    Ok(views.html.index(""))
   }
 
   def form = Action {
-    Ok(views.html.form(getText(), "my message"))
+    Ok(views.html.form("Welcome to Scala Play + Bootstrap + AngularJS"))
   }
 
 
@@ -26,7 +31,7 @@ object Application extends Controller with Config with TextService {
   // Contact
 
   def contact = Action {
-    Ok(views.html.contacts(getText(), Contact.all(), contactForm))
+    Ok(views.html.contacts("", Contact.all(), contactForm))
   }
 
   val contactForm = Form(
@@ -35,7 +40,7 @@ object Application extends Controller with Config with TextService {
 
   def newContact = Action { implicit request =>
     taskForm.bindFromRequest.fold(
-      errors => BadRequest(views.html.contacts(getText(), Contact.all(), errors)),
+      errors => BadRequest(views.html.contacts("", Contact.all(), errors)),
       name => {
         Contact.create(name, "", "")
         Redirect(routes.Application.contact)
@@ -49,7 +54,7 @@ object Application extends Controller with Config with TextService {
   // Tasks
 
   def tasks = Action {
-    Ok(views.html.tasks(getText(), Task.all(), taskForm))
+    Ok(views.html.tasks("", Task.all(), taskForm))
   }
 
   val taskForm = Form(
@@ -58,7 +63,7 @@ object Application extends Controller with Config with TextService {
 
   def newTask = Action { implicit request =>
     taskForm.bindFromRequest.fold(
-      errors => BadRequest(views.html.tasks(getText(), Task.all(), errors)),
+      errors => BadRequest(views.html.tasks("", Task.all(), errors)),
       label => {
         Task.create(label)
         Redirect(routes.Application.tasks)
@@ -97,8 +102,10 @@ object Application extends Controller with Config with TextService {
     Ok(Json.toJson(Page.getPages()))
   }
 
+
+
   def getPage(path: String) = Action {
-    Ok(views.html.page(getText(), Page.getPage(path)))
+    Ok(views.html.page("", Page.getPage(path)))
   }
 
 }

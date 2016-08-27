@@ -1,10 +1,11 @@
-@(text: Text, tasks: List[Task], taskForm: Form[String])
+@(title: String, tasks: List[Task], taskForm: Form[String])
 
 @import helper._
 @import play.api.Play.current
 @import play.api.i18n.Messages.Implicits._
 
-@main(text) {
+@main(title){
+
 
     <h1>@tasks.size task(s)</h1>
 

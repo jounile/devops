@@ -1,11 +1,13 @@
-@(text: Text, pages: List[Page])
+@(title: String, pages: List[Page])
 
-@main(text) {
+@main(title){
+
 
     <div>
     @pages.map { page =>
         <h1>@page.title</h1>
         <p>@page.body</p>
+
     }
     </div>
 

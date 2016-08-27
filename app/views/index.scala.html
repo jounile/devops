@@ -1,6 +1,10 @@
-@(text: Text)
+@(title: String)
+@import play.api.Play.current
+@import play.api.i18n.Messages.Implicits._
 
-@main(text) {
+@main(title){
+
+
     <div ng-controller="TechnologiesController">
         <div class="row" ng-repeat="(techIndex, technology) in technologies" ng-if="$index % 2 == 0">
             <div class="col-lg-6" ng-repeat="i in [0,1]" ng-if="technologies[$index+i]">
@@ -15,7 +19,7 @@
     <hr class="featurette-divider">
 
     <div class="featurette" id="about">
-        <a href="@text.twitterLink"><img class="featurette-image pull-left" src="@routes.Assets.versioned("images/Twitter_bird_logo_2012.svg")" width="100" height="75">
+        <a href="@Messages("twitter.link")"><img class="featurette-image pull-left" src="@routes.Assets.versioned("images/Twitter_bird_logo_2012.svg")" width="100" height="75">
             <h2 class="featurette-heading">What are we up to? <span class="muted">Check our twitter feed. </span> </h2></a>
         <p class="lead">Twitter is very good information channel for Siili related updates</p>
     </div>
@@ -23,7 +27,7 @@
     <hr class="featurette-divider">
 
     <div class="featurette" id="contact">
-        <a href="@text.websiteLink"> <img class="featurette-image pull-left" src="@routes.Assets.versioned("images/siili_logo.png")" width="100" height="100">
+        <a href="@Messages("website.link")"> <img class="featurette-image pull-left" src="@routes.Assets.versioned("images/siili_logo.png")" width="100" height="100">
             <h2 class="featurette-heading">See our website at <span class="muted">www.siili.com</span> </h2>
         </a>
         <p class="lead">We combine design, software development, and data into one business-oriented entity together with the customer, for the benefit of the customer.</p>
@@ -32,11 +36,12 @@
     <hr class="featurette-divider">
 
     <div class="featurette">
-        <a href="@text.linkedinLink"><img class="featurette-image pull-left" src="@routes.Assets.versioned("images/Linkedin_icon.svg")" width="100" height="75">
+        <a href="@Messages("linkedin.link")"><img class="featurette-image pull-left" src="@routes.Assets.versioned("images/Linkedin_icon.svg")" width="100" height="75">
             <h2 class="featurette-heading">Want to contact us? <span class="muted">Find us in LinkedIn.</span> </h2></a>
         <p class="lead">Check our company linkedin profile and find out more.</p>
     </div>
 
     <hr class="featurette-divider">
+
 
 }

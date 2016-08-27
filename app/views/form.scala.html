@@ -1,8 +1,9 @@
-@(text: Text, message: String)
+@(title: String)
 
-@main(text) {
+@main(title){
+
     <div>
-        <h1>Welcome to Scala Play + Bootstrap + AngularJS</h1>
+        <h1>@title</h1>
         <main role="main">
             <div class="main-group">
                 <label for="sometext">Type in some text:</label>
@@ -13,4 +14,5 @@
             <strong>You typed:</strong> {{ sometext }}
         </div>
     </div>
+
 }

@@ -1,10 +1,11 @@
-@(text: Text, contacts: List[Contact], contactForm: Form[String])
+@(title: String, contacts: List[Contact], contactForm: Form[String])
 
 @import helper._
 @import play.api.Play.current
 @import play.api.i18n.Messages.Implicits._
 
-@main(text) {
+@main(title){
+
 
     <h1>Contact</h1>
 
@@ -22,13 +23,14 @@
 
     <div style="float:right;">
 
-        <p>@text.contactName</p>
-        <p>@text.contactTitle</p>
-        <p>@text.contactCompany</p>
-        <p><a href="mailto:@text.contactEmail">@text.contactEmail</a></p>
-        <p><a href="@text.contactLinkedIn" target="_blank">@text.contactLinkedIn</p>
+        <p>@Messages("contact.name")</p>
+        <p>@Messages("contact.title")</p>
+        <p>@Messages("contact.company")</p>
+        <p><a href="mailto:@Messages("contact.email")">@Messages("contact.email")</a></p>
+        <p><a href="@Messages("contact.linkedIn")" target="_blank">@Messages("contact.linkedin")</a></p>
 
     </div>
 
     <div style="clear:both;"></div>
+
 }

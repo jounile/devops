@@ -1,10 +1,12 @@
-@(text: Text, technologies: List[Technology])
+@(title: String, technologies: List[Technology])
 
 @import helper._
 @import play.api.Play.current
 @import play.api.i18n.Messages.Implicits._
 
-@main(text) {
+@main(title){
+
+    @title
 
     <h1>@technologies.size technologies</h1>
 
