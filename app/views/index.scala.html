@@ -5,6 +5,8 @@
 @main(title){
 
 
+    <div>Test</div>
+
     <div ng-controller="TechnologiesController">
         <div class="row" ng-repeat="(techIndex, technology) in technologies" ng-if="$index % 2 == 0">
             <div class="col-lg-6" ng-repeat="i in [0,1]" ng-if="technologies[$index+i]">
