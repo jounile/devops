@@ -16,8 +16,8 @@ object Contact {
   val contact = {
     get[Long]("id") ~
       get[String]("name") ~
-    get[String]("email") ~
-    get[String]("message") map {
+      get[String]("email") ~
+      get[String]("message") map {
       case id~name~email~message => Contact(id, name, email, message)
     }
   }

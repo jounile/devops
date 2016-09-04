@@ -5,7 +5,7 @@ import anorm._
 import play.api.Play.current
 import play.api.db.DB
 
-case class Task(id: Long, label: String)
+case class Task(id: Long, label: String, title: String, link: String, cover: String)
 
 object Task {
 
@@ -15,8 +15,11 @@ object Task {
 
   val task = {
     get[Long]("id") ~
-      get[String]("label") map {
-      case id~label => Task(id, label)
+      get[String]("label")~
+      get[String]("title")~
+      get[String]("link")~
+      get[String]("cover") map {
+      case id~label~title~link~cover => Task(id, label, title, link, cover)
     }
   }
 
@@ -24,10 +27,13 @@ object Task {
     SQL("select * from task").as(task *)
   }
 
-  def create(label: String) {
+  def create(label: String,title: String,link: String,cover: String) {
     DB.withConnection { implicit c =>
-      SQL("insert into task (label) values ({label})").on(
-        'label -> label
+      SQL("insert into task (label, title, link, cover) values ({label}, {title}, {link}, {cover})").on(
+        'label -> label,
+        'title -> title,
+        'link -> link,
+        'cover -> cover
       ).executeUpdate()
     }
   }

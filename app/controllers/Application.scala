@@ -35,15 +35,21 @@ object Application extends Controller with Config {
   }
 
   val contactForm = Form(
-    "name" -> nonEmptyText
+    tuple(
+      "name" -> nonEmptyText,
+      "email" -> nonEmptyText,
+      "message" -> nonEmptyText
+    )
   )
 
   def newContact = Action { implicit request =>
-    taskForm.bindFromRequest.fold(
+    contactForm.bindFromRequest.fold(
       errors => BadRequest(views.html.contacts("", Contact.all(), errors)),
-      name => {
-        Contact.create(name, "", "")
-        Redirect(routes.Application.contact)
+      x=>x match {
+        case (name, email, message) => {
+          Contact.create(name, email, message)
+          Redirect(routes.Application.contact)
+        }
       }
     )
   }
@@ -58,15 +64,21 @@ object Application extends Controller with Config {
   }
 
   val taskForm = Form(
-    "label" -> nonEmptyText
+    tuple(
+      "label" -> nonEmptyText,
+      "title" -> nonEmptyText,
+      "link" -> nonEmptyText,
+      "cover" -> nonEmptyText
+    )
   )
 
   def newTask = Action { implicit request =>
     taskForm.bindFromRequest.fold(
       errors => BadRequest(views.html.tasks("", Task.all(), errors)),
-      label => {
-        Task.create(label)
+      x=>x match { case(label, title, link, cover) => {
+        Task.create(label, title, link, cover)
         Redirect(routes.Application.tasks)
+      }
       }
     )
   }
